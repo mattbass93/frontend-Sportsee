@@ -1,0 +1,79 @@
+.activity-chart-container {
+    grid-column: span 2;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+  }
+/*
+.activity-chart-container {
+   
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+} */
+
+.activity-chart-container h2 {
+    font-size: 16px;
+    color: #20253A;
+    margin-bottom: 20px;
+}
+
+.custom-tooltip {
+    background-color: #E60000;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.custom-tooltip .label {
+    margin: 0;
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #74798C;
+}
+
+.legend-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.legend-icon.black {
+    background-color: #282D30;
+}
+
+.legend-icon.red {
+    background-color: #E60000;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between; /* Aligne le h2 et les légendes */
+    align-items: center; /* Centre verticalement */
+    margin-bottom: 10px;
+}
+
+.chart-header h2 {
+    font-size: 16px;
+    color: #20253A;
+    margin: 0;
+}
+

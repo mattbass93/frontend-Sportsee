@@ -22,19 +22,25 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 const AverageChart = ({ data }) => {
+    if (!data || data.length === 0) {
+        return <p>Chargement des données...</p>;
+    }
+
     const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
     return (
         <div className="average-chart-container">
-            <h2>Durée moyenne des sessions</h2>
+            {/* Titre du graphique */}
+            <h2 className="average-chart-title">Durée moyenne des sessions</h2>
 
-            <ResponsiveContainer width="100%" height={250}>
+            {/* Graphique responsive */}
+            <ResponsiveContainer width="100%" height="100%">
                 <LineChart
                     data={data.map((session) => ({
                         ...session,
-                        day: days, // Transforme les jours en abréviations
+                        day: days[session.day - 1], // Transforme les jours en abréviations
                     }))}
-                    margin={{ top: 10, right: 10, left: 10, bottom: 10 }}
+                    margin={{ top: 10, right: 30, left: 0, bottom: 10 }}
                 >
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis

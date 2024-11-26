@@ -1,11 +1,28 @@
 .average-chart-container {
+    width: 258px;
+    height: 263px;
     background-color: #FF0000;
     border-radius: 10px;
     padding: 20px;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Empêche tout débordement */
 }
+
+.average-chart-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #FFF;
+    margin-bottom: 20px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 .average-chart-container h2 {
     font-size: 1.2rem;

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import ActivityChart from '../components/ActivityChart'; // Graphique d'activité
 import AverageChart from '../components/AverageChart'; // Graphique pour la durée moyenne des sessions
 import PerformanceRadarChart from '../components/PerformanceRadarChart'; // Radar Chart
+import ScoreRadialChart from '../components/ScoreRadialChart';
 import StatCard from '../components/StatCard'; // Cartes statistiques
 import UserInfo from '../components/UserInfo'; // Informations utilisateur
 
@@ -101,19 +102,28 @@ const UserDashboard = () => {
                 {/* Contenu de la page */}
                 <section className="dashboard-content">
                     {/* Graphique d'activité */}
-                    <div className="activity-chart">
-                        <ActivityChart data={activityData} />
+                    <div className='activity-container'>
+                        <div className="activity-chart">
+                            <ActivityChart data={activityData} />
+                        </div>
+
+                        <div className='charts-container'>
+                            {/* Graphique de la durée moyenne des sessions */}
+                            <div className="average-chart">
+                                <AverageChart data={averageSessions} />
+                            </div>
+
+                            {/* Radar Chart */}
+                            <div className="performance-radar-chart">
+                                <PerformanceRadarChart data={performanceData} />
+                            </div>
+
+                            <div className="score-radial-chart">
+                                <ScoreRadialChart score={userData.todayScore || userData.score} />
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Graphique de la durée moyenne des sessions */}
-                    <div className="average-chart">
-                        <AverageChart data={averageSessions} />
-                    </div>
-
-                    {/* Radar Chart */}
-                    <div className="performance-radar-chart">
-                        <PerformanceRadarChart data={performanceData} />
-                    </div>
 
                     {/* Cartes statistiques */}
                     <div className="stats-cards">

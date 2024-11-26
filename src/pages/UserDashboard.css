@@ -168,7 +168,7 @@ nav {
 
 
 .dashboard-content {
-    display: grid;
+    display: flex;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
   }
@@ -220,4 +220,14 @@ nav {
     font-size: 0.9rem;
     color: #555;
     margin: 0;
+}
+
+.charts-container {
+    display: flex;
+    gap: 40px;
+}
+
+.activity-container {
+    display: flex;
+    flex-direction: column;
 }

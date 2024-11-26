@@ -1,6 +1,10 @@
 .radar-chart-container {
-    background-color: #282D30;
-    padding: 20px;
-    border-radius: 5px;
-    color: white;
+    width: 258px;
+    height: 263px;
+    display: flex;
+    align-items: center; /* Centrer verticalement */
+    justify-content: center; /* Centrer horizontalement */
+    background-color: #282D30; /* Exemple de couleur, ajustez selon vos besoins */
+    border-radius: 5px; /* Ajouter des bords arrondis, optionnel */
+    overflow: hidden; /* Empêche le débordement */
 }

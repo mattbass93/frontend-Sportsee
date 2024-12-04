@@ -1,6 +1,4 @@
 .radial-chart-container {
-    width: 258px;
-    height: 263px;
     background-color: #FBFBFB;
     border-radius: 10px;
     padding: 20px;
@@ -11,6 +9,7 @@
     position: relative;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Empêche tout dépassement */
+    
 }
 
 .radial-chart-title {

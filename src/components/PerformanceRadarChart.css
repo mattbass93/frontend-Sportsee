@@ -1,6 +1,4 @@
 .radar-chart-container {
-    width: 258px;
-    height: 263px;
     display: flex;
     align-items: center; /* Centrer verticalement */
     justify-content: center; /* Centrer horizontalement */

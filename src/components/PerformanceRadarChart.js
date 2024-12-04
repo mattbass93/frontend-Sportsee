@@ -13,10 +13,31 @@ const PerformanceRadarChart = ({ data }) => {
         return <p>Chargement des données...</p>;
     }
 
+    // Traduction des "kind" en français
+    const kindTranslation = {
+        cardio: 'Cardio',
+        energy: 'Énergie',
+        endurance: 'Endurance',
+        strength: 'Force',
+        speed: 'Vitesse',
+        intensity: 'Intensité',
+    };
+
+    // Ordre spécifique des catégories
+    const desiredOrder = ['Intensité', 'Vitesse', 'Force', 'Endurance', 'Énergie', 'Cardio'];
+
+    // Traduire et réordonner les données
+    const translatedData = data
+        .map((item) => ({
+            ...item,
+            kind: kindTranslation[item.kind] || item.kind, // Traduction en français
+        }))
+        .sort((a, b) => desiredOrder.indexOf(a.kind) - desiredOrder.indexOf(b.kind)); // Tri selon l'ordre souhaité
+
     return (
         <div className="radar-chart-container">
-            <ResponsiveContainer width="100%" height="100%">
-                <RadarChart outerRadius="70%" data={data}>
+            <ResponsiveContainer width="100%" height={200}>
+                <RadarChart outerRadius="70%" data={translatedData}>
                     <PolarGrid stroke="#FFF" />
                     <PolarAngleAxis
                         dataKey="kind"

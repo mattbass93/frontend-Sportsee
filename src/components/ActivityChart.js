@@ -46,7 +46,7 @@ const ActivityChart = ({ data }) => {
                     </span>
                 </div>
             </div>
-            <ResponsiveContainer width="100%" height={320}>
+            <ResponsiveContainer width="100%" height={200}>
                 <BarChart
                     data={data}
                     margin={{ top: 10, right: 0, left: 0, bottom: 10 }}

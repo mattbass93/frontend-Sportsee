@@ -34,13 +34,13 @@ const AverageChart = ({ data }) => {
             <h2 className="average-chart-title">Durée moyenne des sessions</h2>
 
             {/* Graphique responsive */}
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height={150} >
                 <LineChart
                     data={data.map((session) => ({
                         ...session,
                         day: days[session.day - 1], // Transforme les jours en abréviations
                     }))}
-                    margin={{ top: 10, right: 30, left: 0, bottom: 10 }}
+                    margin={{ top: 10, right: 10, left: 10, bottom: 10 }}
                 >
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis

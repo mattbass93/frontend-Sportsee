@@ -1,13 +1,14 @@
 import React from 'react';
+import './StatCard.css';
 
 const StatCard = ({ icon, value, label }) => {
     return (
 
         <div className="stat-card">
-            <img src={icon} alt={`${label} icon`} />
+            <img className='stat-card-icon' src={icon} alt={`${label} icon`} />
             <div>
-                <p>{value}</p>
-                <p>{label}</p>
+                <p className='stat-card-value'>{value}</p>
+                <p className='stat-card-label'>{label}</p>
             </div>
         </div>
     );

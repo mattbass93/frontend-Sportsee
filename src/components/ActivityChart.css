@@ -12,8 +12,8 @@
 }
 
 .custom-tooltip {
-    background-color: #E60000 !important;
-    color: white !important;
+    background-color: #E60000;
+    color: white;
     padding: 10px;
     border-radius: 5px;
     font-size: 12px;

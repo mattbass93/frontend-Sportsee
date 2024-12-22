@@ -10,7 +10,7 @@ import './PerformanceRadarChart.css'; // Assurez-vous que les styles sont bien i
 
 const PerformanceRadarChart = ({ data }) => {
     if (!data || data.length === 0) {
-        return <p>Chargement des données...</p>;
+        return <p>Données introuvable</p>;
     }
 
     // Traduction des "kind" en français
@@ -36,12 +36,12 @@ const PerformanceRadarChart = ({ data }) => {
 
     return (
         <div className="radar-chart-container">
-            <ResponsiveContainer width="100%" height={200}>
+            <ResponsiveContainer width="100%" height="100%">
                 <RadarChart outerRadius="70%" data={translatedData}>
                     <PolarGrid stroke="#FFF" />
                     <PolarAngleAxis
                         dataKey="kind"
-                        tick={{ fill: '#FFF', fontSize: 12 }}
+                        tick={{ fill: '#FFF', fontSize: 9 }}
                     />
                     <Radar
                         name="Performance"

@@ -7,12 +7,13 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Empêche tout dépassement */
+    width: 100%;
+    height: 200px;
     
 }
 
-.radial-chart-title {
+ .radial-chart-title {
     font-size: 1rem;
     font-weight: 500;
     color: #20253A;
@@ -25,6 +26,22 @@
     overflow: hidden; /* Coupe le texte si trop long */
     text-overflow: ellipsis; /* Affiche des "..." si le texte est trop long */
 }
+
+.radial-chart-title {
+    font-size: 1rem; /* Taille de la police relative */
+    font-weight: 500;
+    color: #20253A;
+    margin-bottom: 20px;
+    text-align: center;
+    position: absolute;
+    top: 20%; /* Position relative à la hauteur du conteneur */
+    left: 20%; /* Position relative à la largeur du conteneur */
+    white-space: nowrap; /* Évite que le texte dépasse sur plusieurs lignes */
+    overflow: hidden; /* Coupe le texte si trop long */
+    text-overflow: ellipsis; /* Affiche des "..." si le texte est trop long */
+    transform: translate(-50%, -50%); /* Centrer le texte */
+}
+
 
 .radial-chart-label {
     fill: #20253A;

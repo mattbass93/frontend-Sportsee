@@ -20,7 +20,7 @@ const ScoreRadialChart = ({ score }) => {
     return (
         <div className="radial-chart-container">
             <h2 className="radial-chart-title">Score</h2>
-            <ResponsiveContainer width="100%" height={150}>
+            <ResponsiveContainer width="100%" height="100%">
                 <RadialBarChart
                     cx="50%"
                     cy="50%"
@@ -50,9 +50,9 @@ const ScoreRadialChart = ({ score }) => {
                         dominantBaseline="middle"
                         className="radial-chart-label"
                     >
-                        <tspan x="50%" dy="-0.5em" fontSize="26px" fontWeight="bold">{`${data[0].value}%`}</tspan>
-                        <tspan x="50%" dy="1.5em" fontSize="16px">de votre</tspan>
-                        <tspan x="50%" dy="1.5em" fontSize="16px">objectif</tspan>
+                        <tspan x="50%" dy="-0.5em" fontSize="24px" fontWeight="bold">{`${data[0].value}%`}</tspan>
+                        <tspan x="50%" dy="1.5em" fontSize="0.9rem">de votre</tspan>
+                        <tspan x="50%" dy="1.5em" fontSize="0.9rem">objectif</tspan>
                     </text>
                 </RadialBarChart>
             </ResponsiveContainer>

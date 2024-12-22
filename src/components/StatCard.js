@@ -1,17 +1,34 @@
 import React from 'react';
 import './StatCard.css';
 
-const StatCard = ({ icon, value, label }) => {
-    return (
+// Liste des icônes
+import CaloriesIcon from '../assets/icons/calories-icon.png';
+import ProteinIcon from '../assets/icons/protein-icon.png';
+import CarbsIcon from '../assets/icons/carbs-icon.png';
+import FatIcon from '../assets/icons/fat-icon.png';
 
+// Dictionnaire des icônes
+const ICONS = {
+    calories: CaloriesIcon,
+    protein: ProteinIcon,
+    carbs: CarbsIcon,
+    fat: FatIcon,
+};
+
+const StatCard = ({ type, value, label }) => {
+    // Sélectionne l'icône en fonction du type
+    const icon = ICONS[type] || ICONS['calories']; // Définit une icône par défaut si `type` est invalide
+
+    return (
         <div className="stat-card">
-            <img className='stat-card-icon' src={icon} alt={`${label} icon`} />
+            <img className="stat-card-icon" src={icon} alt={`${label} icon`} />
             <div>
-                <p className='stat-card-value'>{value}</p>
-                <p className='stat-card-label'>{label}</p>
+                <p className="stat-card-value">{value}</p>
+                <p className="stat-card-label">{label}</p>
             </div>
         </div>
     );
 };
 
 export default StatCard;
+

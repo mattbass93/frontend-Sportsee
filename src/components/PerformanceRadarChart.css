@@ -1,8 +1,22 @@
 .radar-chart-container {
-    display: flex;
-    align-items: center; /* Centrer verticalement */
-    justify-content: center; /* Centrer horizontalement */
+    
     background-color: #282D30; /* Exemple de couleur, ajustez selon vos besoins */
     border-radius: 5px; /* Ajouter des bords arrondis, optionnel */
     overflow: hidden; /* Empêche le débordement */
 }
+
+.radar-chart-container {
+    width: 100%; /* Prend tout l'espace disponible horizontalement */
+    height: 200px; /* Ajuste automatiquement la hauteur */
+    aspect-ratio: 1; /* Assure un ratio carré */
+    margin: 0 auto; /* Centre le conteneur si nécessaire */
+    padding: 5px;
+}
+
+@media (min-width: 1400px)  {
+    .radar-chart-container tspan {
+        font-size: 12px;
+
+    }
+}
+

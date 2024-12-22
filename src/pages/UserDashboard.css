@@ -59,3 +59,18 @@
 
 
 
+@media (min-height: 820px) {
+    .dashboard-main-content {
+        margin: 30px 0 0 50px;
+    }
+}
+
+@media (min-height: 900px) and (min-width: 1200px) {
+    .dashboard-main-content {
+        margin: 30px 0 0 80px;
+    }
+
+    .activity-container {
+        gap: 40px;
+    }
+}

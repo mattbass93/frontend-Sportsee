@@ -10,3 +10,15 @@
 .welcome-username p {
  margin-bottom: 1rem
 }  
+
+
+
+@media (min-height: 820px) and (min-width: 1440px) {
+  .welcome-username h2 {
+    font-size: 3.5rem;
+  }
+
+  .welcome-username p {
+    margin-bottom: 4rem
+   }  
+}

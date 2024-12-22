@@ -44,3 +44,15 @@ nav {
     font-size: 1rem;
     text-decoration: none;
 }
+
+
+@media (min-height: 900px) and (min-width: 1400px) {
+
+    .dashboard-header {
+        height: 91px;
+    }
+
+    .nav-links li a {
+        font-size: 1.5rem;
+    }
+}

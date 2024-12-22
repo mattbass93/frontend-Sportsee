@@ -68,3 +68,11 @@
     margin: 0;
 }
 
+
+
+@media (min-height: 900px) and (min-width: 1400px) {
+    .activity-chart-container {
+        width: 835px;
+        height: 320px;
+      }
+}

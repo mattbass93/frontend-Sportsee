@@ -6,33 +6,16 @@ import {
     Radar,
     ResponsiveContainer,
 } from 'recharts';
-import './PerformanceRadarChart.css'; // Assurez-vous que les styles sont bien importés
+import Formatter from '../utils/Formatter'; // Import de la classe Formatter
+import './PerformanceRadarChart.css';
 
 const PerformanceRadarChart = ({ data }) => {
     if (!data || data.length === 0) {
-        return <p>Données introuvable</p>;
+        return <p>Données introuvables</p>;
     }
 
-    // Traduction des "kind" en français
-    const kindTranslation = {
-        cardio: 'Cardio',
-        energy: 'Énergie',
-        endurance: 'Endurance',
-        strength: 'Force',
-        speed: 'Vitesse',
-        intensity: 'Intensité',
-    };
-
-    // Ordre spécifique des catégories
-    const desiredOrder = ['Intensité', 'Vitesse', 'Force', 'Endurance', 'Énergie', 'Cardio'];
-
-    // Traduire et réordonner les données
-    const translatedData = data
-        .map((item) => ({
-            ...item,
-            kind: kindTranslation[item.kind] || item.kind, // Traduction en français
-        }))
-        .sort((a, b) => desiredOrder.indexOf(a.kind) - desiredOrder.indexOf(b.kind)); // Tri selon l'ordre souhaité
+    // Utilisation de Formatter pour traduire et réordonner les données
+    const translatedData = Formatter.translateAndOrderKinds(data);
 
     return (
         <div className="radar-chart-container">

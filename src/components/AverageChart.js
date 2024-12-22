@@ -8,6 +8,7 @@ import {
     ResponsiveContainer,
     CartesianGrid,
 } from 'recharts';
+import Formatter from '../utils/Formatter'; // Import de la classe utilitaire
 import './AverageChart.css';
 
 const CustomTooltip = ({ active, payload }) => {
@@ -23,7 +24,6 @@ const CustomTooltip = ({ active, payload }) => {
 
 const AverageChart = ({ data }) => {
     const [hoverIndex, setHoverIndex] = useState(null);
-    const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
     return (
         <div className="average-chart-container">
@@ -32,8 +32,8 @@ const AverageChart = ({ data }) => {
                 <LineChart
                     data={data.map((session, index) => ({
                         ...session,
-                        day: days[session.day - 1],
-                        index, // Ajoute l'index pour gérer le survol
+                        day: Formatter.formatDayOfWeek(session.day), // Utilise la méthode de formatage
+                        index,
                     }))}
                     margin={{ top: 10, right: 30, left: 30, bottom: 10 }}
                     onMouseMove={(e) => {
@@ -43,14 +43,13 @@ const AverageChart = ({ data }) => {
                     }}
                     onMouseLeave={() => setHoverIndex(null)}
                 >
-                    {/* Affiche une zone rouge foncée à droite lors du survol */}
                     {hoverIndex !== null && (
                         <rect
                             x={`${(hoverIndex / data.length) * 100}%`}
                             y="0"
                             width={`${((data.length - hoverIndex) / data.length) * 100}%`}
                             height="100%"
-                            fill="rgba(210, 10, 10, 0.78)" // Rouge foncé semi-transparent
+                            fill="rgba(210, 10, 10, 0.78)"
                         />
                     )}
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />

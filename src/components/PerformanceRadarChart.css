@@ -20,3 +20,9 @@
     }
 }
 
+@media (min-height: 900px) and (min-width: 1400px) {
+    .radar-chart-container {
+        width: 260px;
+        height: 260px;
+    }
+}

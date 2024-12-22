@@ -8,6 +8,7 @@ import {
     Tooltip,
     ResponsiveContainer,
 } from 'recharts';
+import Formatter from '../utils/Formatter'; // Import de la classe utilitaire
 import './ActivityChart.css';
 
 const CustomTooltip = ({ active, payload }) => {
@@ -26,12 +27,6 @@ const ActivityChart = ({ data }) => {
     if (!data || data.length === 0) {
         return <p>Aucune donnée disponible pour le graphique.</p>;
     }
-
-    // Formatage des dates pour ne garder que le jour
-    const formatDay = (dateString) => {
-        const date = new Date(dateString);
-        return date.getDate(); // Récupère uniquement le jour du mois
-    };
 
     return (
         <div className="activity-chart-container">
@@ -55,7 +50,7 @@ const ActivityChart = ({ data }) => {
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis
                         dataKey="day"
-                        tickFormatter={formatDay} // Applique la fonction de formatage
+                        tickFormatter={Formatter.formatDay} // Utilise la méthode de formatage
                         tickLine={false}
                         tick={{
                             fill: '#9B9EAC',
@@ -74,7 +69,7 @@ const ActivityChart = ({ data }) => {
                     <YAxis
                         yAxisId="calories"
                         orientation="left"
-                        hide={true} // Cacher l'axe des calories
+                        hide={true}
                     />
                     <Tooltip
                         content={<CustomTooltip />}

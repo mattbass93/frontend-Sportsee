@@ -70,6 +70,7 @@ const UserDashboard = () => {
                     <p className="error-message">
                         L'utilisateur avec l'ID <strong>{id}</strong> est introuvable.
                     </p>
+                    <p>Données indisponibles.</p>
                 </main>
             </div>
         );

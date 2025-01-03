@@ -8,7 +8,7 @@ import {
     Tooltip,
     ResponsiveContainer,
 } from 'recharts';
-import Formatter from '../utils/Formatter'; // Import de la classe utilitaire
+import Formatter from '../utils/Formatter';
 import './ActivityChart.css';
 
 const CustomTooltip = ({ active, payload }) => {
@@ -50,7 +50,7 @@ const ActivityChart = ({ data }) => {
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis
                         dataKey="day"
-                        tickFormatter={Formatter.formatDay} // Utilise la méthode de formatage
+                        tickFormatter={Formatter.formatDay}
                         tickLine={false}
                         tick={{
                             fill: '#9B9EAC',

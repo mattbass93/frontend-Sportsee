@@ -8,12 +8,12 @@ import {
 import './ScoreRadialChart.css';
 
 const ScoreRadialChart = ({ score }) => {
-    // Préparez les données pour le graphique
+
     const data = [
         {
             name: 'Score',
-            value: score * 100, // Convertir en pourcentage
-            fill: '#E60000', // Couleur du pourcentage
+            value: score * 100,
+            fill: '#E60000',
         },
     ];
 

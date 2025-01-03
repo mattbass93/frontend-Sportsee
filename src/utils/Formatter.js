@@ -1,5 +1,3 @@
-// src/utils/Formatter.js
-
 export default class Formatter {
     static formatDay(dateString) {
         const date = new Date(dateString);
@@ -11,11 +9,8 @@ export default class Formatter {
         return days[dayIndex - 1] || '';
     }
 
-    /**
-     * Traduire et réordonner les "kinds"
-     * @param {Array} data - Les données de performance à traduire et réordonner
-     * @returns {Array} Les données traduites et réordonnées
-     */
+
+
     static translateAndOrderKinds(data) {
         const kindTranslation = {
             cardio: 'Cardio',

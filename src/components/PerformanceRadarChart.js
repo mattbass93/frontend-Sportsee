@@ -6,7 +6,7 @@ import {
     Radar,
     ResponsiveContainer,
 } from 'recharts';
-import Formatter from '../utils/Formatter'; // Import de la classe Formatter
+import Formatter from '../utils/Formatter';
 import './PerformanceRadarChart.css';
 
 const PerformanceRadarChart = ({ data }) => {
@@ -14,7 +14,6 @@ const PerformanceRadarChart = ({ data }) => {
         return <p>Données introuvables</p>;
     }
 
-    // Utilisation de Formatter pour traduire et réordonner les données
     const translatedData = Formatter.translateAndOrderKinds(data);
 
     return (

@@ -16,8 +16,8 @@ const ICONS = {
 };
 
 const StatCard = ({ type, value, label }) => {
-    // Sélectionne l'icône en fonction du type
-    const icon = ICONS[type] || ICONS['calories']; // Définit une icône par défaut si `type` est invalide
+
+    const icon = ICONS[type] || ICONS['calories'];
 
     return (
         <div className="stat-card">

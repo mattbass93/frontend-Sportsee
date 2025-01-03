@@ -6,16 +6,15 @@ import {
     YAxis,
     Tooltip,
     ResponsiveContainer,
-    CartesianGrid,
 } from 'recharts';
-import Formatter from '../utils/Formatter'; // Import de la classe utilitaire
+import Formatter from '../utils/Formatter';
 import './AverageChart.css';
 
 const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
         return (
             <div className="averagechart-custom-tooltip">
-                <p className="label">{`${payload[0].value} min`}</p>
+                <p>{`${payload[0].value} min`}</p>
             </div>
         );
     }
@@ -28,14 +27,31 @@ const AverageChart = ({ data }) => {
     return (
         <div className="average-chart-container">
             <h2 className="average-chart-title">Durée moyenne des sessions</h2>
-            <ResponsiveContainer width="100%" height={100}>
+
+            {/* Rectangle avec position absolute */}
+            {hoverIndex !== null && (
+                <svg
+                    className="hover-highlight"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect
+                        x={`${(hoverIndex / data.length) * 100}%`}
+                        y="0"
+                        width={`${((data.length - hoverIndex) / data.length) * 100}%`}
+                        height="100%"
+                        fill="rgba(210, 10, 10, 0.6)"
+                    />
+                </svg>
+            )}
+
+            <ResponsiveContainer width="100%" height={170}>
                 <LineChart
                     data={data.map((session, index) => ({
                         ...session,
-                        day: Formatter.formatDayOfWeek(session.day), // Utilise la méthode de formatage
+                        day: Formatter.formatDayOfWeek(session.day),
                         index,
                     }))}
-                    margin={{ top: 10, right: 30, left: 30, bottom: 10 }}
+                    margin={{ top: 5, right: 15, left: 15, bottom: 25 }}
                     onMouseMove={(e) => {
                         if (e.activeTooltipIndex !== undefined) {
                             setHoverIndex(e.activeTooltipIndex);
@@ -43,35 +59,38 @@ const AverageChart = ({ data }) => {
                     }}
                     onMouseLeave={() => setHoverIndex(null)}
                 >
-                    {hoverIndex !== null && (
-                        <rect
-                            x={`${(hoverIndex / data.length) * 100}%`}
-                            y="0"
-                            width={`${((data.length - hoverIndex) / data.length) * 100}%`}
-                            height="100%"
-                            fill="rgba(210, 10, 10, 0.78)"
-                        />
-                    )}
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                    {/* Dégradé pour la ligne */}
+                    <defs>
+                        <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stopColor="rgba(255, 255, 255, 0.4)" />
+                            <stop offset="100%" stopColor="#FFFFFF" />
+                        </linearGradient>
+                    </defs>
+
                     <XAxis
                         dataKey="day"
                         tickLine={false}
-                        tick={{ fill: '#FFF', fontSize: 12 }}
+                        tick={{
+                            fill: 'rgba(255, 255, 255, 0.7)',
+                            fontSize: 12,
+                            dy: 15, // Décale les ticks vers le bas
+                        }}
                         axisLine={false}
                     />
                     <YAxis hide={true} />
                     <Tooltip content={<CustomTooltip />} cursor={false} />
                     <Line
-                        type="monotone"
+                        type="natural"
                         dataKey="sessionLength"
-                        stroke="#FFF"
+                        stroke="url(#lineGradient)" // Utilise le dégradé défini
                         strokeWidth={2}
                         dot={false}
                         activeDot={{
                             r: 5,
                             stroke: '#FFF',
                             strokeWidth: 2,
-                            fill: '#E60000',
+                            fill: '#FFF',
+
                         }}
                     />
                 </LineChart>

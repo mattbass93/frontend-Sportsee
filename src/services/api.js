@@ -1,98 +1,63 @@
 const BASE_URL = 'http://localhost:3000';
-const USE_MOCK = true; // Changez à `false` pour utiliser le backend
+const MOCK_URL = '/mockData.json';
+const USE_MOCK = false;
 
-// Récupérer les données principales de l'utilisateur
+const getMockDataByUserId = async (userId) => {
+    const mockData = await fetchData(MOCK_URL);
+    if (mockData.user.id !== parseInt(userId, 10)) {
+        throw new Error('Utilisateur introuvable dans les données mockées');
+    }
+    return mockData;
+};
+
+
+
+
+const fetchData = async (url) => {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error(`Erreur lors de l'appel à ${url} :`, error);
+        throw error;
+    }
+};
+
+
 export const getUserData = async (userId) => {
-    try {
-        if (USE_MOCK) {
-            const response = await fetch('/mockData.json');
-            const mockData = await response.json();
-            if (mockData.user.id === parseInt(userId, 10)) {
-                return { data: mockData.user };
-            } else {
-                throw new Error('Utilisateur introuvable dans les données mockées');
-            }
-        }
-
-        const response = await fetch(`${BASE_URL}/user/${userId}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Erreur dans getUserData :', error);
-        throw error;
+    if (USE_MOCK) {
+        const mockData = await getMockDataByUserId(userId);
+        return { data: mockData.user };
     }
+    return fetchData(`${BASE_URL}/user/${userId}`);
 };
 
-// Récupérer l'activité quotidienne de l'utilisateur
+
 export const getUserActivity = async (userId) => {
-    try {
-        if (USE_MOCK) {
-            const response = await fetch('/mockData.json');
-            const mockData = await response.json();
-            if (mockData.user.id === parseInt(userId, 10)) {
-                return { data: mockData.activity };
-            } else {
-                throw new Error('Activité introuvable dans les données mockées');
-            }
-        }
-
-        const response = await fetch(`${BASE_URL}/user/${userId}/activity`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Erreur dans getUserActivity :', error);
-        throw error;
+    if (USE_MOCK) {
+        const mockData = await getMockDataByUserId(userId);
+        return { data: mockData.activity };
     }
+    return fetchData(`${BASE_URL}/user/${userId}/activity`);
 };
 
-// Récupérer les sessions moyennes de l'utilisateur
+
 export const getUserAverageSessions = async (userId) => {
-    try {
-        if (USE_MOCK) {
-            const response = await fetch('/mockData.json');
-            const mockData = await response.json();
-            if (mockData.user.id === parseInt(userId, 10)) {
-                return { data: mockData.averageSessions };
-            } else {
-                throw new Error('Sessions moyennes introuvables dans les données mockées');
-            }
-        }
-
-        const response = await fetch(`${BASE_URL}/user/${userId}/average-sessions`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Erreur dans getUserAverageSessions :', error);
-        throw error;
+    if (USE_MOCK) {
+        const mockData = await getMockDataByUserId(userId);
+        return { data: mockData.averageSessions };
     }
+    return fetchData(`${BASE_URL}/user/${userId}/average-sessions`);
 };
 
-// Récupérer les performances de l'utilisateur
-export const getUserPerformance = async (userId) => {
-    try {
-        if (USE_MOCK) {
-            const response = await fetch('/mockData.json');
-            const mockData = await response.json();
-            if (mockData.user.id === parseInt(userId, 10)) {
-                return { data: mockData.performance };
-            } else {
-                throw new Error('Performance introuvable dans les données mockées');
-            }
-        }
 
-        const response = await fetch(`${BASE_URL}/user/${userId}/performance`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Erreur dans getUserPerformance :', error);
-        throw error;
+export const getUserPerformance = async (userId) => {
+    if (USE_MOCK) {
+        const mockData = await getMockDataByUserId(userId);
+        return { data: mockData.performance };
     }
+    return fetchData(`${BASE_URL}/user/${userId}/performance`);
 };

@@ -92,3 +92,9 @@
         width: 80%;
     }
 }
+
+@media (min-width: 1440px) {
+    .dashboard-main-content {
+        margin-top: 5px;
+    }
+}

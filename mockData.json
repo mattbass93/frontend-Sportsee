@@ -1,0 +1,51 @@
+{
+    "user": {
+      "id": 15,
+      "userInfos": {
+        "firstName": "Matthis",
+        "lastName": "Couder",
+        "age": 31
+      },
+      "todayScore": 0.66,
+      "keyData": {
+        "calorieCount": 10000,
+        "proteinCount": 250,
+        "carbohydrateCount": 3000,
+        "lipidCount": 50
+      }
+    },
+    "activity": {
+      "sessions": [
+        { "day": "2020-07-01", "kilogram": 80, "calories": 240 },
+        { "day": "2020-07-02", "kilogram": 80, "calories": 220 },
+        { "day": "2020-07-03", "kilogram": 81, "calories": 280 }
+      ]
+    },
+    "averageSessions": {
+      "sessions": [
+        { "day": 1, "sessionLength": 30 },
+        { "day": 2, "sessionLength": 23 },
+        { "day": 3, "sessionLength": 45 },
+        { "day": 4, "sessionLength": 70 }
+      ]
+    },
+    "performance": {
+  "data": [
+    { "value": 80, "kind": 1 },
+    { "value": 120, "kind": 2 },
+    { "value": 140, "kind": 3 },
+    { "value": 40, "kind": 4 },
+    { "value": 250, "kind": 5 }
+  ],
+  "kind": {
+    "1": "cardio",
+    "2": "energy",
+    "3": "endurance",
+    "4": "strength",
+    "5": "speed",
+    "6": "intensity"
+  }
+}
+
+  }
+  

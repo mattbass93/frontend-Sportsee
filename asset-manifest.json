@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/frontend-Sportsee/static/css/main.6145451e.css",
-    "main.js": "/frontend-Sportsee/static/js/main.9a09299f.js",
+    "main.js": "/frontend-Sportsee/static/js/main.5366e03d.js",
     "static/js/453.d855a71b.chunk.js": "/frontend-Sportsee/static/js/453.d855a71b.chunk.js",
     "static/media/sportseelogo.png": "/frontend-Sportsee/static/media/sportseelogo.60c22a064372f40b4628.png",
     "index.html": "/frontend-Sportsee/index.html",
     "main.6145451e.css.map": "/frontend-Sportsee/static/css/main.6145451e.css.map",
-    "main.9a09299f.js.map": "/frontend-Sportsee/static/js/main.9a09299f.js.map",
+    "main.5366e03d.js.map": "/frontend-Sportsee/static/js/main.5366e03d.js.map",
     "453.d855a71b.chunk.js.map": "/frontend-Sportsee/static/js/453.d855a71b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6145451e.css",
-    "static/js/main.9a09299f.js"
+    "static/js/main.5366e03d.js"
   ]
 }

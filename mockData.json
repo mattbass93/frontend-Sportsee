@@ -32,8 +32,8 @@
         { "day": 3, "sessionLength": 45 },
         { "day": 4, "sessionLength": 30 },
         { "day": 5, "sessionLength": 20 },
-        { "day": 6, "sessionLength": 50 },
-        { "day": 7, "sessionLength": 50 }
+        { "day": 6, "sessionLength": 20 },
+        { "day": 7, "sessionLength": 30 }
       ]
     },
     "performance": {

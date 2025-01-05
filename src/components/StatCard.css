@@ -28,3 +28,10 @@
     color: #555;
     margin: 0;
 }
+
+@media (min-height: 1024px) and (min-width: 1440px) { 
+    .stat-card {
+        width: 258px;
+        height: 124px;
+      }
+}

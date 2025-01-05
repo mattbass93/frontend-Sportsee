@@ -45,13 +45,16 @@
 
 .averagechart-custom-tooltip {
     background: #fff;
-    padding: 5px 10px;
+    padding: 5px 10px 0px 10px;
     border-radius: 5px;
     color: #000;
     font-size: 12px;
     font-weight: bold;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -64,9 +67,21 @@
     }
 }
 
-@media (min-height: 900px) and (min-width: 1400px) {
-    .average-chart-container {
+@media (min-height: 1024px) and (min-width: 1440px) {
+      .average-chart-container {
         width: 260px;
         height: 260px;
     }
+
+    .average-chart-title {
+        font-size: 0.9rem;
+        margin-left: 30px;
+        margin-bottom: 0px;
+        margin-top: 30px;
+    }
+
+    .line-chart {
+        margin-bottom: 0px;
+    }
+
 }

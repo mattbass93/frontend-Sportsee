@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     LineChart,
     Line,
@@ -23,6 +23,22 @@ const CustomTooltip = ({ active, payload }) => {
 
 const AverageChart = ({ data }) => {
     const [hoverIndex, setHoverIndex] = useState(null);
+
+    const [tickDy, setTickDy] = useState(15); // Valeur par défaut de `dy`
+
+    // Vérifie les media queries et ajuste la valeur de `dy`
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(min-width: 1440px) and (min-height: 1024px)');
+        // Exemple de media query
+
+        const updateDy = () => {
+            setTickDy(mediaQuery.matches ? 30 : 15);
+        };
+
+        updateDy(); // Initialiser
+        mediaQuery.addEventListener('change', updateDy); // Écoute les changements
+        return () => mediaQuery.removeEventListener('change', updateDy); // Nettoyer
+    }, []);
 
     return (
         <div className="average-chart-container">
@@ -73,7 +89,7 @@ const AverageChart = ({ data }) => {
                         tick={{
                             fill: 'rgba(255, 255, 255, 0.7)',
                             fontSize: 12,
-                            dy: 15, // Décale les ticks vers le bas
+                            dy: tickDy, // Utilise la valeur dynamique
                         }}
                         axisLine={false}
                     />

@@ -66,16 +66,24 @@
 }
 
 @media (min-height: 900px) and (min-width: 1200px) {
-    .dashboard-main-content {
-        margin: 30px 0 0 80px;
-    }
 
     .activity-container {
         gap: 40px;
     }
+
+    .activity-container {
+        width: 70%;
+    }
+
+    .charts-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        align-items: start;
+    }
 }
 
-@media (min-height: 1024px) and (min-width: 1440px) {
+ @media (min-height: 1024px) and (min-width: 1440px) {
     .dashboard-main-content {
         margin: auto;
     }
@@ -94,7 +102,4 @@
 }
 
 @media (min-width: 1440px) {
-    .dashboard-main-content {
-        margin-top: 5px;
-    }
 }

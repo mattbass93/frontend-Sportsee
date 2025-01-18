@@ -18,6 +18,8 @@ const StatCard = ({ type, value, label }) => {
 
     const icon = ICONS[type] || ICONS['calories'];
 
+
+
     return (
         <div className="stat-card">
             <img className="stat-card-icon" src={icon} alt={`${label} icon`} />

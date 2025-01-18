@@ -25,7 +25,7 @@ const CustomTooltip = ({ active, payload }) => {
 
 const ActivityChart = ({ data }) => {
     if (!data || data.length === 0) {
-        return <p>Aucune donnée disponible pour le graphique.</p>;
+        return <p></p>;
     }
 
     return (

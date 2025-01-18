@@ -68,9 +68,8 @@ const UserDashboard = () => {
                 <DashboardSidebar />
                 <main className="dashboard-main-content">
                     <p className="error-message">
-                        L'utilisateur avec l'ID <strong>{id}</strong> est introuvable.
+                        API indisponible, veuillez nous excuser de la gêne occasionnée
                     </p>
-                    <p>Données indisponibles.</p>
                 </main>
             </div>
         );
@@ -92,31 +91,33 @@ const UserDashboard = () => {
                                 <ScoreRadialChart score={userData?.todayScore || userData?.score || 0} />
                             </div>
                         ) : (
-                            <p className="no-data-message">Données des graphiques non disponibles</p>
+                            <p className="loading-message">Chargement des données, veuillez patienter...</p>
                         )}
                     </div>
-                    <div className="stats-cards">
-                        <StatCard
-                            type="calories"
-                            value={`${userData?.keyData?.calorieCount || 0}kCal`}
-                            label="Calories"
-                        />
-                        <StatCard
-                            type="protein"
-                            value={`${userData?.keyData?.proteinCount || 0}g`}
-                            label="Protéines"
-                        />
-                        <StatCard
-                            type="carbs"
-                            value={`${userData?.keyData?.carbohydrateCount || 0}g`}
-                            label="Glucides"
-                        />
-                        <StatCard
-                            type="fat"
-                            value={`${userData?.keyData?.lipidCount || 0}g`}
-                            label="Lipides"
-                        />
-                    </div>
+                    {userData && (
+                        <div className="stats-cards">
+                            <StatCard
+                                type="calories"
+                                value={`${userData?.keyData?.calorieCount || 0}kCal`}
+                                label="Calories"
+                            />
+                            <StatCard
+                                type="protein"
+                                value={`${userData?.keyData?.proteinCount || 0}g`}
+                                label="Protéines"
+                            />
+                            <StatCard
+                                type="carbs"
+                                value={`${userData?.keyData?.carbohydrateCount || 0}g`}
+                                label="Glucides"
+                            />
+                            <StatCard
+                                type="fat"
+                                value={`${userData?.keyData?.lipidCount || 0}g`}
+                                label="Lipides"
+                            />
+                        </div>
+                    )}
                 </section>
             </main>
         </div>

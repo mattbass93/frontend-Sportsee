@@ -19,12 +19,12 @@ import DashboardSidebar from '../components/DashboardSidebar';
 import './UserDashboard.css';
 
 const UserDashboard = () => {
-    const { id } = useParams(); // Récupère l'ID utilisateur depuis l'URL
+    const { id } = useParams();
     const [userData, setUserData] = useState(null);
     const [activityData, setActivityData] = useState(null);
     const [averageSessions, setAverageSessions] = useState(null);
     const [performanceData, setPerformanceData] = useState(null);
-    const [error, setError] = useState(false); // État d'erreur pour afficher le message
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         const fetchAllData = async () => {
@@ -54,7 +54,7 @@ const UserDashboard = () => {
                 }
             } catch (err) {
                 console.error(err.message);
-                setError(true); // Active l'état d'erreur
+                setError(true);
             }
         };
 

@@ -1,13 +1,12 @@
 import React from 'react';
 import './StatCard.css';
 
-// Liste des icônes
 import CaloriesIcon from '../assets/icons/calories-icon.png';
 import ProteinIcon from '../assets/icons/protein-icon.png';
 import CarbsIcon from '../assets/icons/carbs-icon.png';
 import FatIcon from '../assets/icons/fat-icon.png';
 
-// Dictionnaire des icônes
+
 const ICONS = {
     calories: CaloriesIcon,
     protein: ProteinIcon,

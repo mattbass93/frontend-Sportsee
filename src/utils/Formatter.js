@@ -1,4 +1,5 @@
 export default class Formatter {
+
     static formatDay(dateString) {
         const date = new Date(dateString);
         return date.getDate();

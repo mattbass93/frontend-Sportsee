@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Si vous utilisez React Router
-import SportSeeLogo from '../assets/logos/sportseelogo.png'; // Ajustez le chemin en fonction de votre structure de fichiers
-import './DashboardHeader.css'; // Créez un fichier CSS pour le style de l'en-tête
+import { Link } from 'react-router-dom';
+import SportSeeLogo from '../assets/logos/sportseelogo.png';
+import './DashboardHeader.css';
 
 const DashboardHeader = () => {
     return (

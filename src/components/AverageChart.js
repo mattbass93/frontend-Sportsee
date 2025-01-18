@@ -24,27 +24,26 @@ const CustomTooltip = ({ active, payload }) => {
 const AverageChart = ({ data }) => {
     const [hoverIndex, setHoverIndex] = useState(null);
 
-    const [tickDy, setTickDy] = useState(15); // Valeur par défaut de `dy`
+    const [tickDy, setTickDy] = useState(15);
 
-    // Vérifie les media queries et ajuste la valeur de `dy`
+
     useEffect(() => {
         const mediaQuery = window.matchMedia('(min-width: 1440px) and (min-height: 1024px)');
-        // Exemple de media query
+
 
         const updateDy = () => {
             setTickDy(mediaQuery.matches ? 30 : 15);
         };
 
-        updateDy(); // Initialiser
-        mediaQuery.addEventListener('change', updateDy); // Écoute les changements
-        return () => mediaQuery.removeEventListener('change', updateDy); // Nettoyer
+        updateDy();
+        mediaQuery.addEventListener('change', updateDy);
+        return () => mediaQuery.removeEventListener('change', updateDy);
     }, []);
 
     return (
         <div className="average-chart-container">
             <h2 className="average-chart-title">Durée moyenne des sessions</h2>
 
-            {/* Rectangle avec position absolute */}
             {hoverIndex !== null && (
                 <svg
                     className="hover-highlight"
@@ -75,7 +74,6 @@ const AverageChart = ({ data }) => {
                     }}
                     onMouseLeave={() => setHoverIndex(null)}
                 >
-                    {/* Dégradé pour la ligne */}
                     <defs>
                         <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
                             <stop offset="0%" stopColor="rgba(255, 255, 255, 0.4)" />
@@ -89,7 +87,7 @@ const AverageChart = ({ data }) => {
                         tick={{
                             fill: 'rgba(255, 255, 255, 0.7)',
                             fontSize: 12,
-                            dy: tickDy, // Utilise la valeur dynamique
+                            dy: tickDy,
                         }}
                         axisLine={false}
                     />
@@ -98,7 +96,7 @@ const AverageChart = ({ data }) => {
                     <Line
                         type="natural"
                         dataKey="sessionLength"
-                        stroke="url(#lineGradient)" // Utilise le dégradé défini
+                        stroke="url(#lineGradient)"
                         strokeWidth={2}
                         dot={false}
                         activeDot={{
